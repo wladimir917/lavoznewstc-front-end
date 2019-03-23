@@ -1,1 +1,0 @@
-# lavoznewstc-front-end
