@@ -21,8 +21,8 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#2dd8ff`,
-        theme_color: `#2dd8ff`,
+        background_color: `#00acee`,
+        theme_color: `#00acee`,
         display: `minimal-ui`,
         icon: `src/images/la-voz-logo.jpg`, // This path is relative to the root of the site.
       },
