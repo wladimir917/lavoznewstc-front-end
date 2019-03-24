@@ -3,6 +3,12 @@ import PropTypes from "prop-types"
 import React from "react"
 import Logo from "./logo";
 
+const ListLink = props => (
+  <li style={{ display: `inline-block`, marginRight: `1rem` }}>
+    <Link to={props.to}>{props.children}</Link>
+  </li>
+)
+
 const Header = ({ siteTitle }) => (
   <header
     style={{
@@ -16,26 +22,20 @@ const Header = ({ siteTitle }) => (
         padding: `1.45rem 1.0875rem`,
       }}
     >
-      <h1 style={{ margin: 0 }}>
-        <Logo
-          style={{
-            height: `10px`,
-          }}
-        />
-        <Link
-          to="/"
-          style={{
-            color: `black`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
+        <Logo/>
+        <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
+          <h3 style={{ display: `inline` }}>{siteTitle}</h3>
         </Link>
-      </h1>
+        <ul style={{ listStyle: `none`, float: `right` }}>
+          <ListLink to="/">Home</ListLink>
+          <ListLink to="/about/">About</ListLink>
+          <ListLink to="/contact/">Contact</ListLink>
+          <ListLink to="/past-editions/">Past Editions</ListLink>
+        </ul>
     </div>
     <div
       style={{
-        height: '1rem',
+        height: '0.9rem',
         background: `gray`,
         opacity: 0.1,
         marginBottom: `1.45rem`,
