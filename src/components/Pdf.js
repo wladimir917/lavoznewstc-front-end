@@ -25,7 +25,6 @@ class Pdf extends Component {
   nextPage = () => {
     let numPages = this.state.numPages;
     let pageNumber = this.state.pageNumber;
-    console.log(pageNumber, numPages);
     pageNumber++;
     if(pageNumber > numPages)
       pageNumber = 1;
@@ -37,7 +36,6 @@ class Pdf extends Component {
   prevPage = () => {
     let numPages = this.state.numPages;
     let pageNumber = this.state.pageNumber;
-    console.log(pageNumber, numPages);
     pageNumber--;
     if(pageNumber === 0)
       pageNumber = numPages;
@@ -50,9 +48,11 @@ class Pdf extends Component {
     const { pageNumber, numPages } = this.state;
 
     return (
+      <>
       <div className="Example__container__document">
         <Document
           file={"https://cors-anywhere.herokuapp.com/http://lavoznewstc.com/IMG/backpdf/last-SMALL.pdf"}
+          // file={"http://lavoznewstc.com/IMG/backpdf/last-SMALL.pdf"}
           onLoadSuccess={this.onDocumentLoadSuccess}
           options={options}
         >
@@ -69,10 +69,15 @@ class Pdf extends Component {
           } */}
           <Page pageNumber={pageNumber} />
         </Document>
-        <p>Page {pageNumber} of {numPages}</p>
-        <button onClick={this.prevPage}>Prev Page</button>
-        <button onClick={this.nextPage}>Next Page</button>
       </div>
+      <div className="container-center">
+        <button onClick={this.prevPage}>Prev Page</button>
+        <div>
+          <div>Page {pageNumber} of {numPages}</div>
+        </div>
+        <button onClick={this.nextPage}>Next Page</button>         
+      </div>
+    </>
     );
   }
 }

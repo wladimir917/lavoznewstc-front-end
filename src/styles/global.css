@@ -17,13 +17,13 @@ body {
 }
 
 .pdf-container-page {
-  max-width: 10% - 2em;
+  max-width: 100% - 2em;
   box-shadow: 0 0 8px rgba(0, 0, 0, .5);
   margin: 1em;
 }
 
 .pdf-container-page canvas{
-  max-width: 10%;
+  max-width: 100%;
   height: auto !important;
 }
 
@@ -68,7 +68,7 @@ body {
   align-items: center;
 }
 .Example__container__document .react-pdf__Page {
-  max-width: calc(100% - 1em);
+  max-width: calc(100% - 2em);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   margin: 1em;
 }
@@ -78,7 +78,14 @@ body {
 }
 .Example__container__document .react-pdf__message {
   padding: 20px;
-  color: white;
+  color: rgb(0, 0, 0);
+}
+
+.container-center {
+  display: flex;
+  justify-content: space-evenly;  
+  background: white;
+  opacity: 0.6;
 }
 
 /* 
