@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import { Document, Page } from 'react-pdf';
 
-import pdfFile from '../pdfs/edition.pdf';
+// import { Document, Page } from 'react-pdf/dist/entry.parcel';
+// import 'react-pdf/dist/Page/AnnotationLayer.css';
+
+// import pdfFile from '../pdfs/edition.pdf';
+
+
+const options = {
+  cMapUrl: 'cmaps/',
+  cMapPacked: true,
+};
 
 class Pdf extends Component {
   state = {
@@ -14,26 +23,50 @@ class Pdf extends Component {
   }
 
   nextPage = () => {
+    let numPages = this.state.numPages;
+    let pageNumber = this.state.pageNumber;
+    console.log(pageNumber, numPages);
+    pageNumber++;
+    if(pageNumber > numPages)
+      pageNumber = 1;
     this.setState({
-      pageNumber: this.state.pageNumber + 1
-    });
+        pageNumber: pageNumber
+      });
   }
 
   prevPage = () => {
+    let numPages = this.state.numPages;
+    let pageNumber = this.state.pageNumber;
+    console.log(pageNumber, numPages);
+    pageNumber--;
+    if(pageNumber === 0)
+      pageNumber = numPages;
     this.setState({
-      pageNumber: this.state.pageNumber - 1
-    });
+        pageNumber: pageNumber
+      });
   }
 
   render() {
     const { pageNumber, numPages } = this.state;
 
     return (
-      <div>
+      <div className="Example__container__document">
         <Document
-          file={pdfFile}
+          file={"https://cors-anywhere.herokuapp.com/http://lavoznewstc.com/IMG/backpdf/last-SMALL.pdf"}
           onLoadSuccess={this.onDocumentLoadSuccess}
+          options={options}
         >
+          {/* {
+            Array.from(
+              new Array(numPages),
+              (el, index) => (
+                <Page
+                  key={`page_${index + 1}`}
+                  pageNumber={index + 1}
+                />
+              ),
+            )
+          } */}
           <Page pageNumber={pageNumber} />
         </Document>
         <p>Page {pageNumber} of {numPages}</p>
