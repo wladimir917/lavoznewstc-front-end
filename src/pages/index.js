@@ -2,7 +2,6 @@ import React from "react"
 import { Link, StaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import Banner from "../components/banner"
 import SEO from "../components/seo"
 import banner from "../images/banners/banner.jpg"
 import portada from "../images/banners/portada.jpg"

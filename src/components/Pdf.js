@@ -52,7 +52,7 @@ class Pdf extends Component {
       <div className="Example__container__document">
         <Document
           // file={"http://www.lavoznewstc.com/IMG/backpdf/090619-SMALL.pdf"}
-          file={"../img/backpdf/090619-SMALL.pdf"}
+          file={"../img/backpdf/102519-SMALL.pdf"}
           onLoadSuccess={this.onDocumentLoadSuccess}
           options={options}
         >
